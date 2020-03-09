@@ -1,0 +1,89 @@
+@import 'colors.scss';
+
+//* {
+//  margin: 0;
+//  padding: 0;
+//  font-size: 10px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //background-image: url("../media/icons/searchIcon.svg");
+}
+
+main {
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-container {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: map_get($colors, yellow);
+}
+
+#add-comment-form {
+  display: grid;
+  grid-template-rows: 20px minmax(40px, auto) 30px;
+  grid-template-columns: 100%;
+  grid-row-gap: 10px;
+}
+
+#submit-button {
+  width: 68px;
+  height: 100%;
+  background-color: deepskyblue;
+  color: white;
+  border: unset;
+  border-radius: 5px;
+  place-self: flex-end;
+  font-weight: bold;
+}
+
+#comments-container {
+
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: repeat(2, 20px);
+  grid-template-areas:  "user-image user-email"
+                        "user-image user-message";
+  grid-gap: 5px;
+  justify-items: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+
+  div {
+    grid-area: user-image;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+  }
+
+  h6 {
+    grid-area: user-email;
+    margin: 0;
+    font: normal normal 12px/16px Arial;
+  }
+
+  p {
+    grid-area: user-message;
+    font: normal normal 12px/16px Arial;
+    margin: 0;
+    color: darkgray;
+  }
+}
+
