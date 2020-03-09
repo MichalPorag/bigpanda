@@ -1,0 +1,129 @@
+@import 'colors.scss';
+@import 'icons.scss';
+@import 'buttons.scss';
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+main {
+  width: 349px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+  border: 1px solid map_get($colors, background);
+
+  > * {
+    box-sizing: border-box;
+  }
+}
+
+#input-container {
+  width: 100%;
+  padding: 20px 19px 26px 20px;
+  background-color: map_get($colors, background);
+}
+
+#add-comment-form {
+  display: grid;
+  grid-template-rows: 35px minmax(62px, auto) 30px;
+  grid-template-columns: 100%;
+  grid-row-gap: 9px;
+
+  input {
+    padding-left: 12px;
+  }
+
+  input:first-child {
+    margin-bottom: 3px;
+  }
+}
+
+#submit-button {
+  width: 68px;
+  height: 100%;
+  background-color: map_get($colors, button-buckground);
+  color: white;
+  border: unset;
+  border-radius: 5px;
+  place-self: flex-end;
+  font-weight: bold;
+}
+
+#comments-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 32px 1fr;
+  grid-template-columns: 100%;
+  grid-row-gap: 26px;
+  padding: 29px 18px 23px 19px;
+
+  form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border: 1px solid map_get($colors, dark-border);
+
+    input {
+      border: unset;
+    }
+
+    input:first-child {
+      width: 30px;
+    }
+
+    input:last-child {
+      width: 100%;
+      padding-left: 5px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    > :not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: 43px 1fr;
+  grid-template-rows: repeat(2, 20px);
+  grid-template-areas:  "user-image user-email"
+                        "user-image user-message";
+  grid-gap: 3px;
+  justify-items: flex-start;
+  align-items: center;
+
+  div {
+    grid-area: user-image;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    border-radius: 3px;
+  }
+
+  h6 {
+    grid-area: user-email;
+    margin: 0;
+    font: normal normal 12px/16px Arial;
+  }
+
+  p {
+    grid-area: user-message;
+    font: normal normal 12px/16px Arial;
+    margin: 0;
+    color: darkgray;
+  }
+}
+

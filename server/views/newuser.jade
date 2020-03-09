@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h3= title
+    form#form_add_user(name="adduser", method="post", action="/adduser")
+        span Email
+        span &nbsp;
+        input#input_email(type="text", placeholder="Email")
+        br
+        br
+        span Message
+        span &nbsp;
+        input#input_message(type="text", placeholder="Message")
