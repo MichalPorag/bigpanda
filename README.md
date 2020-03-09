@@ -12,4 +12,4 @@ npm run dev
 * [SCSS](https://sass-lang.com/guide) - CSS extension language
 
 ## Author
-### Michal Porag
+Michal Porag
