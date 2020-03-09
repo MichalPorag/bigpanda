@@ -11,5 +11,5 @@ npm run dev
 * [Node.js](https://nodejs.org/en/) - frontend
 * [SCSS](https://sass-lang.com/guide) - CSS extension language
 
-##Author
-###Michal Porag
+## Author
+### Michal Porag
