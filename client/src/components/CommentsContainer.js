@@ -24,14 +24,20 @@ function CommentsContainer() {
     };
 
     React.useEffect(() => {
-        filterUsers()
+        filterUsers();
     }, [searchTerm]);
 
     function filterUsers() {
-        const filteredUsers = users.filter(user =>
-            user.email.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
-        );
-        setSearchResults(filteredUsers);
+        if (searchTerm !== "") {
+            let filteredUsers = users.filter(user =>
+                user.email !== undefined &&
+                user.email !== "" &&
+                user.email.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
+            );
+            setSearchResults(filteredUsers);
+        } else {
+            setSearchResults(users);
+        }
     }
 
     return (

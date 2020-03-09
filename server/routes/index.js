@@ -42,6 +42,8 @@ router.post('/', function(req, res) {
     } else {
       const collection = db.collection('users');
       const doc = req.body;
+      console.log(`db: ${JSON.stringify(db)}`);
+      console.log(`collection: ${JSON.stringify(collection)}`);
       console.log(`req is: ${req.toString()}`);
       console.log(`doc is: ${JSON.stringify(doc)}`);
       collection.insertOne(doc)
