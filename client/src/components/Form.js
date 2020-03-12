@@ -22,7 +22,6 @@ function Form() {
             },
             body: JSON.stringify(user)
         };
-        console.log(`options: ${JSON.stringify(options)}`);
         fetch("http://localhost:8080/", options)
             .then(resp => console.log(resp))
             .catch(err => alert(`error: ${err}`));
