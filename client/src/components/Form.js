@@ -16,10 +16,10 @@ function Form() {
 
         const options = {
             method: 'POST',
-            // headers: {
-            //     'Accept': '*/*',
-            //     'Content-Type': 'application/json'
-            // },
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(user)
         };
         console.log(`options: ${JSON.stringify(options)}`);
