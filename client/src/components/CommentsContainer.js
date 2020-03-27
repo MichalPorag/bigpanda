@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
 
-function CommentsContainer() {
-    const [hasError, setErrors] = useState(false);
+function CommentsContainer(props) {
     const [users, setUsers] = useState([]);
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searchResults, setSearchResults] = React.useState([]);
+
+    let usersLastActivObj = {};
+
+    console.log(`searchResults: ${typeof (searchResults)} ( ${JSON.stringify(searchResults)} )`);
 
     async function fetchData() {
         fetch("http://localhost:8080/")
             .then(res => res.json())
             .then(res => setUsers(res))
-            .catch(err => setErrors(err))
+            .then(res => console.log(">>>>>>>>res: " + res + ", " + "users: " + users))
+            .catch(err => console.log(err))
+    }
+
+    if (props.isCollectionChange) {
+        fetchData();
     }
 
     useEffect(() => {
         fetchData();
+
         filterUsers();
     }, [users.length]);
+
+    function createUsersLastActivObj() {
+
+    }
 
     const handleChange = event => {
         setSearchTerm(event.target.value);

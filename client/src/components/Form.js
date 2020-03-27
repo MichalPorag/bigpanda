@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function Form() {
+function Form(props) {
     let user = {
         email: "",
         message: ""
@@ -8,7 +8,6 @@ function Form() {
 
     function handleChange(event) {
         user = {...user, [event.target.name]: event.target.value};
-        console.log(">>>>user: " + JSON.stringify(user));
     }
 
     async function handleSubmit(event) {
@@ -22,14 +21,18 @@ function Form() {
             },
             body: JSON.stringify(user)
         };
-        console.log(`options: ${JSON.stringify(options)}`);
+
         fetch("http://localhost:8080/", options)
-            .then(resp => console.log(resp))
-            .catch(err => alert(`error: ${err}`));
+            .then(response => {
+                console.log(response.ok);
+                props.onCollectionChange(response.ok);
+            })
+            .catch(err => console.log(`error: ${err}`));
     }
 
     return (
-        <div  id={"input-container"}>
+        <div id={"input-container"}
+             onSubmit={handleSubmit}>
             <form action={"#"} id={"add-comment-form"}>
                 <input name={"email"}
                        type={"text"}

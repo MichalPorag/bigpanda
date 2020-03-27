@@ -31,6 +31,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function(req, res) {
+  console.log(`new post request has received... []`);
   MongoClient.connect(MONGO_URL, function (err, db) {
     if (err) {
       console.error("Unable to connect to server", err);
